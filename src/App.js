@@ -20,7 +20,7 @@ useEffect(() => {
 
   console.log(text);
   if(text){
-    fetch( `${apiUrl}anime?filter[text]=${text}` )
+    fetch( `${apiUrl}anime?filter[text]=${text}&page[limit]=12` )
     .then((response) => response.json())
     .then((response) =>{
       setInfo(response)
@@ -41,8 +41,10 @@ useEffect(() => {
       <ul className='animes-list'>
         {info.data.map((anime)=>(
           <li key={anime.id}>
-            <img src={anime.attributes.posterImage.small}></img>
-            {anime.attributes.canonicalTitle}
+            <img src={anime.attributes.posterImage.small} alt={anime.attributes.canonicalTitle}></img>
+           <h4>
+             {anime.attributes.canonicalTitle}
+             </h4> 
           </li>
         ))}
       </ul>

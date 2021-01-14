@@ -20,6 +20,7 @@ grid-row-gap: 2rem;
 transform: scale(1.02);
 box-shadow: 6px 10px 10px black;
 transition: all ease 0.2s;
+cursor: pointer;
 }
 .animes-list img{
   max-width: 100%;

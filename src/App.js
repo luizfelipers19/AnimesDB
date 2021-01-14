@@ -20,6 +20,9 @@ useEffect(() => {
 
   console.log(text);
   if(text){
+    setInfo({});
+    localStorage.clear();
+
     fetch( `${apiUrl}anime?filter[text]=${text}&page[limit]=12` )
     .then((response) => response.json())
     .then((response) =>{
@@ -36,6 +39,11 @@ useEffect(() => {
       <h1>App AnimeJS</h1>
       <SearchInput value={text} 
       onChange={(str)=> setText(str)}></SearchInput>
+
+  {text && !info.data && (
+    <span>Carregando...</span>
+  )}
+
 
     {info.data && (
       <ul className='animes-list'>
